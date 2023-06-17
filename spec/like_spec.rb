@@ -21,21 +21,18 @@ RSpec.describe Like, type: :model do
     end
 
     it 'should have a post id' do
-      expect(@like.post_id).to eq(@post.id)
+      expect(@like.post_id).to eq(post.id)
     end
 
     it 'should have an author id' do
-      expect(@like.author_id).to eq(@user.id)
+      expect(@like.author_id).to eq(user.id)
     end
   end
 
-  describe 'methods' do
     it 'should have a method update_like_counter' do
-      expect(@post.likes_counter).to eq(0)
+      expect(post.likes_counter).to eq(0)
 
-      @like = Like.create(post_id: @post.id, author_id: @user.id)
-      @post.reload
-      expect(@post.likes_counter).to eq(1)
-    end
+      @like = Like.create(post_id: post.id, author_id: user.id)
+      expect(post.reload.likes_counter).to eq(1)
   end
 end
