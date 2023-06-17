@@ -52,7 +52,8 @@ RSpec.describe User, type: :model do
   describe 'methods' do
     it 'should return 3 last posts' do
       4.times do |i|
-        Post.create(author_id: @user.id, title: "Post ##{i}", text: "This is post ##{i}", comments_counter: 0, likes_counter: 0)
+        Post.create(author_id: @user.id, title: "Post ##{i}", text: "This is post ##{i}", comments_counter: 0,
+                    likes_counter: 0)
       end
       puts Post.first
       expect(@user.recent_posts.count).to eq(3)

@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
   let(:user) { User.create(name: 'User Test', photo: 'photo.com', bio: 'Test Comment', post_counter: 0) }
-  let(:post) { Post.create(author_id: user.id, title: 'Test', text: 'Text Test', comments_counter: 0, likes_counter: 0) }
+  let(:post) do
+    Post.create(author_id: user.id, title: 'Test', text: 'Text Test', comments_counter: 0, likes_counter: 0)
+  end
 
   describe 'initialize' do
     before(:each) do
