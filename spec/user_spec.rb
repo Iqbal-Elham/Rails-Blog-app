@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   before(:each) do
-    @user = User.create(name: 'John Doe', photo: 'https://i.pravatar.cc/300', bio: 'Alien biologist', post_counter: 0)
+    @user = User.create(name: 'Iqbal Elham', photo: 'https://pexel.com/300', bio: 'Software Engineer', post_counter: 0)
   end
 
   describe 'initialize' do
@@ -15,15 +15,15 @@ RSpec.describe User, type: :model do
     end
 
     it 'should have a name' do
-      expect(@user.name).to eq('John Doe')
+      expect(@user.name).to eq('Iqbal Elham')
     end
 
     it 'should have a photo' do
-      expect(@user.photo).to eq('https://i.pravatar.cc/300')
+      expect(@user.photo).to eq('https://pexel.com/300')
     end
 
     it 'should have a bio' do
-      expect(@user.bio).to eq('Alien biologist')
+      expect(@user.bio).to eq('Software Engineer')
     end
 
     it 'should have a posts counter' do
@@ -39,7 +39,7 @@ RSpec.describe User, type: :model do
     end
 
     it 'should validate numericality of posts counter' do
-      @user.post_counter = 'a'
+      @user.post_counter = 'f'
       expect(@user.valid?).to be(false)
       expect(@user.errors.include?(:post_counter)).to be(true)
 
