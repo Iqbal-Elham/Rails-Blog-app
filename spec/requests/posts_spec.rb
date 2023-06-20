@@ -1,42 +1,41 @@
 require 'rails_helper'
 
-RSpec.describe 'Users', type: :request do
-  before(:each) do
-    get users_path
-  end
-
-  describe 'GET /users' do
-    it 'should return a users' do
-      get '/users'
-      expect(response).to have_http_status(200)
-    end
-  end
-
-  describe 'GET /users/:id' do
-    it 'should return one user' do
-      get '/users/1'
-      expect(response).to have_http_status(200)
-    end
-  end
-
+RSpec.describe 'Posts', type: :request do
   describe 'GET /index' do
-    it 'renders a successful template' do
-      expect(response).to render_template(:index)
-    end
-
-    it 'renders the correct content' do
-      expect(response.body).to include('users')
-    end
-  end
-
-  describe 'GET /show' do
     before(:each) do
-      @user = User.create(name: 'Iqbal', photo: 'https://images.com', bio: 'Hello Iqbal Elham')
-      get users_path(@user)
+      @user = User.create(name: 'Iqbal Elham', photo: 'https://www.images.com', bio: 'This is a Iqbal Elham.', post_counter: 0)
+      get user_posts_path(@user)
     end
 
     it 'returns http success' do
       expect(response).to have_http_status(:success)
+    end
+
+    it 'renders the index template' do
+      expect(response).to render_template(:index)
+    end
+
+    it 'renders the correct content' do
+      expect(response.body).to include('posts')
+    end
+  end
+  describe 'GET /show' do
+    before(:each) do
+      @user = User.create(name: 'Iqbal Elham', photo: 'https://images.com', bio: 'Hello Iqbal elham', post_counter: 0)
+      @post = Post.create(author_id: @user.id, title: 'Hello iqbal Elham', text: 'very nice blog', comments_counter: 0, likes_counter: 0)
+      get user_post_path(@user, @post)
+    end
+
+    it 'returns http success' do
+      expect(response).to have_http_status(:success)
+    end
+
+    it 'renders the show template' do
+      expect(response).to render_template(:show)
+    end
+
+    it 'renders the correct content' do
+      expect(response.body).to include('Details of the post')
     end
   end
 end
