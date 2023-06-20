@@ -25,7 +25,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'renders the correct content' do
-      expect(response.body).to include('users')
+      expect(response.body).to include('list of users')
     end
   end
 
@@ -34,10 +34,15 @@ RSpec.describe 'Users', type: :request do
       @user = User.create(name: 'Iqbal Elham', photo: 'https://www.images.com', bio: 'Hello, Iqbal Elham',
                           post_counter: 0)
       get users_path(@user)
+      get '/users/1'
     end
 
     it 'returns http success' do
       expect(response).to have_http_status(:success)
+    end
+
+    it 'renders the correct content' do
+      expect(response.body).to include('Profile of the user')
     end
   end
 end
