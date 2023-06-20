@@ -55,7 +55,6 @@ RSpec.describe User, type: :model do
         Post.create(author_id: @user.id, title: "Post ##{i}", text: "This is post ##{i}", comments_counter: 0,
                     likes_counter: 0)
       end
-      puts Post.first
       expect(@user.recent_posts.count).to eq(3)
     end
   end
