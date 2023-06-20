@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Posts', type: :request do
   describe 'GET /index' do
     before(:each) do
-      @user = User.create(name: 'Iqbal Elham', photo: 'https://www.images.com', bio: 'This is a Iqbal Elham.', post_counter: 0)
+      @user = User.create(name: 'Iqbal Elham', photo: 'https://www.images.com', bio: 'This is a Iqbal Elham.',
+                          post_counter: 0)
       get user_posts_path(@user)
     end
 
@@ -22,7 +23,8 @@ RSpec.describe 'Posts', type: :request do
   describe 'GET /show' do
     before(:each) do
       @user = User.create(name: 'Iqbal Elham', photo: 'https://images.com', bio: 'Hello Iqbal elham', post_counter: 0)
-      @post = Post.create(author_id: @user.id, title: 'Hello iqbal Elham', text: 'very nice blog', comments_counter: 0, likes_counter: 0)
+      @post = Post.create(author_id: @user.id, title: 'Hello iqbal Elham', text: 'very nice blog', comments_counter: 0,
+                          likes_counter: 0)
       get user_post_path(@user, @post)
     end
 
