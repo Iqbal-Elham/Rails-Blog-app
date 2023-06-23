@@ -1,29 +1,29 @@
 .user-posts {
-    padding: 2rem;
+  padding: 2rem;
 }
 
 .post-list {
-    padding: 2rem;
+  padding: 2rem;
 }
 
-.posts-list>div {
-    margin-bottom: 1rem;
+.posts-list > div {
+  margin-bottom: 1rem;
 }
 
 .comment {
-    display: flex;
-    margin: 0.8rem 0rem;
+  display: flex;
+  margin: 0.8rem 0;
 }
 
 .show-more {
-    border: 2px solid rgb(27, 126, 219);
-    width: fit-content;
-    padding: 0.4rem;
-    border-radius: 0.7rem;
-    margin: 0.5rem 0rem;
+  border: 2px solid rgb(27, 126, 219);
+  width: fit-content;
+  padding: 0.4rem;
+  border-radius: 0.7rem;
+  margin: 0.5rem 0;
 }
 
 .show-more:hover {
-    background-color: rgb(27, 126, 219);
-    color: white;
+  background-color: rgb(27, 126, 219);
+  color: white;
 }

@@ -11,10 +11,10 @@ h1 {
 }
 
 .users {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 img {
@@ -29,8 +29,7 @@ img {
 
 .user {
   display: flex;
-  margin:.5rem auto;
-
+  margin: 0.5rem auto;
 }
 
 .user-info {
@@ -44,8 +43,8 @@ img {
   font-size: 1.5rem;
   border: 1px solid black;
   border-radius: 2rem;
-  
 }
+
 .user-info p {
   text-align: right;
   margin-right: 1rem;
@@ -56,20 +55,18 @@ img {
 
 .user-details {
   padding: 2rem;
-
 }
 
 .user-detail {
   display: flex;
-  margin:.5rem auto;
+  margin: 0.5rem auto;
   align-items: center;
   color: black;
 }
 
 .posts {
-  margin: 1rem 0rem;
+  margin: 1rem 0;
   color: black;
-
 }
 
 .post-reactions {
