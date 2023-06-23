@@ -1,0 +1,77 @@
+h1 {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  margin: 1rem auto;
+  padding: 1rem;
+  border: 1px solid black;
+  border-radius: 2rem;
+  width: 50%;
+  background-color: #f2f2f2;
+}
+
+.users {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+img {
+  border-radius: 2rem;
+}
+
+.box-border {
+  padding: 1rem;
+  border: 3px solid gray;
+  border-radius: 2rem;
+}
+
+.user {
+  display: flex;
+  margin:.5rem auto;
+
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 2rem;
+  width: 100%;
+  padding: 1rem;
+  color: black;
+  font-size: 1.5rem;
+  border: 1px solid black;
+  border-radius: 2rem;
+  
+}
+.user-info p {
+  text-align: right;
+  margin-right: 1rem;
+  font-size: 1rem;
+}
+
+/* ------ Show user view -------- */
+
+.user-details {
+  padding: 2rem;
+
+}
+
+.user-detail {
+  display: flex;
+  margin:.5rem auto;
+  align-items: center;
+  color: black;
+}
+
+.posts {
+  margin: 1rem 0rem;
+  color: black;
+
+}
+
+.post-reactions {
+  text-align: right;
+}
