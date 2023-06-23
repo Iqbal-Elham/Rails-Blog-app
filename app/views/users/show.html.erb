@@ -1,27 +1,28 @@
 <%= stylesheet_link_tag 'users_styles'%>
 
-<h1>display details about a user</h1>
+<h1>Details of <%= @user.name %></h1>
 
-<main>
-  <div class='user'>
+<section class='user-details'>
+  <div class='user-detail box-border' >
     <%= image_tag(@user.photo, class: 'user-photo') %>
-    <div class='user-show-info'>
-      <h2><%= @user.name %></h2>
+    <div class='user-info'>
+      <h2><%= @user.name %></h2> <br>
       <p>Number of posts: <%= @user.post_counter %></p>
     </div>
   </div>
 
-  <div class='user-bio'>
-    <h3>Bio<h3>
+  <div class='box-border'>
+    <h2>Bio</h2>
     <p><%= @user.bio%></p>
   </div>
   <section class='posts-section'>
     <% @posts.each_with_index do |post, index| %>
         <%= link_to user_posts_path(@user.id) do %>
-        <article class='posts'>
-          <h3><%= "Post ##{index+1}" %></h3>
-          <h4><%= post.text%></h4>
-          <p><%= "Comments: #{post.comments_counter}, Likes: #{post.likes_counter}"%></p>
+        <article class='posts box-border'>
+          <h2><%= "Post ##{index+1}" %></h2>
+          <br>
+          <p><%= post.text%></p>
+          <p class='post-reactions'><%= "Comments: #{post.comments_counter}, Likes: #{post.likes_counter}"%></p>
         </article>
         <% end %>
     <% end %>

@@ -1,6 +1,7 @@
 <%= stylesheet_link_tag 'posts_styles'%>
-<h1>Posts</h1>
-<section class='user-header'>
+<h1>Posts of <%= @user.name %></h1>
+<section class='user-posts'>
+<section class='user-detail box-border'>
   <%= image_tag(@user.photo) %>
   <div class='user-info'>
     <h2 class='user-name'><%= @user.name %></h2>
@@ -9,20 +10,19 @@
 </section>
 
 <section class='posts-list'>
-  <h2>List of Posts</h2>
   <% @posts.each do |post| %>
-    <div class='post-card'>
-      <h3 class='post-title'><%= post.title %></h3>
-      <%= link_to user_post_path(@user.id, post.id) do %>
-        <p class='go-to-post'>Go to Post</p>
-      <% end %>
-      <p class='post-text'><%= post.text %></p>
-      <div class='post-likes-comments'>
-        <p class='post-likes'>Likes: <%= post.likes_counter %></p>
-        <p class='post-comments'>Comments: <%= post.comments_counter %></p>
-      </div>
-      <hr />
-      <div class='comments'>
+    <div class='box-border'>
+     <article class='posts box-border'>
+          <h2><%= "#{post.title}" %></h2>
+          <br>
+          <p><%= post.text%></p>
+          <%= link_to user_post_path(@user.id, post.id) do %>
+            <p class='show-more'>Show more</p>
+          <% end %>
+          <p class='post-reactions'><%= "Comments: #{post.comments_counter}, Likes: #{post.likes_counter}"%></p>
+        </article>
+      <div class='comments box-border'>
+        <h3>Comments</h3>
         <% post.recent_comments.each do |comment| %>
           <div class='comment'>
             <p class='user-comment'><%= comment.author.name %>: </p>
@@ -32,4 +32,5 @@
       </div>
     </div>
   <% end %>
+</section>
 </section>
