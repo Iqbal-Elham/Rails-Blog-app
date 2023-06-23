@@ -1,1 +1,26 @@
-<h1>Details of the post<%= @post_id %> by user<%= @user_id %></h1>
+<%= stylesheet_link_tag 'posts_styles'%>
+
+<h1>Show posts by user ID</h1>
+<% if @post %>
+    <section class='post-list'>
+      <div class='post-card'>
+        <h3 class='post-title'>"<%= @post.title %>" by <%= @post.author.name %></h3>
+        <p class='post-text'><%= @post.text %></p>
+        <div class='post-likes-comments'>
+          <p class='post-likes'>Likes: <%= @post.likes_counter %></p>
+          <p class='post-comments'>Comments: <%= @post.comments_counter %></p>
+        </div>
+        <hr />
+        <div class='comments'>
+          <% @post.comments.each do |comment| %>
+              <div class='comment'>
+                <p class='user-comment'><%= comment.author.name %>: </p>
+                <p class='comment-text'><%= comment.text %></p>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </section>
+<% else %>
+  <h1>Post not found</h1>
+<% end %>
