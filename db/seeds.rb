@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-user1 = User.create(name: 'Iqbal Elham', photo: 'https://placekitten.com/200/200', bio: 'I am a software engineer.')
-user2 = User.create(name: 'Farhad', photo: 'https://placekitten.com/200/200', bio: 'I am an Professor.')
-user3 = User.create(name: 'Ali', photo: 'https://placekitten.com/200/200', bio: 'I am a Manager.')
-user4 = User.create(name: 'Hamid', photo: 'https://placekitten.com/200/200', bio: 'I am a President')
-user5 = User.create(name: 'Farid', photo: 'https://placekitten.com/200/200', bio: 'I am a Chef')
+user1 = User.create(name: 'Iqbal Elham', photo: 'https://xsgames.co/randomusers/avatar.php?g=male', bio: 'I am a software engineer.')
+user2 = User.create(name: 'Farhad', photo: 'https://xsgames.co/randomusers/avatar.php?g=male', bio: 'I am an Professor.')
+user3 = User.create(name: 'Ali', photo: 'https://xsgames.co/randomusers/avatar.php?g=male', bio: 'I am a Manager.')
+user4 = User.create(name: 'Hamid', photo: 'https://xsgames.co/randomusers/avatar.php?g=male', bio: 'I am a President')
+user5 = User.create(name: 'Farid', photo: 'https://xsgames.co/randomusers/avatar.php?g=male', bio: 'I am a Chef')
 
 post1 = Post.create(author_id: user1.id, title: 'Hello world', text: 'This is my first post.')
 post2 = Post.create(author_id: user1.id, title: 'Hello world', text: 'This is my second post.')
