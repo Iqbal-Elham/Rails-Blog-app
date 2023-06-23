@@ -16,7 +16,7 @@
     <p><%= @user.bio%></p>
   </div>
   <section class='posts-section'>
-    <% @posts.each_with_index do |post, index| %>
+    <% @user.recent_posts.each_with_index do |post, index| %>
         <%= link_to user_posts_path(@user.id) do %>
         <article class='posts box-border'>
           <h2><%= "Post ##{index+1}" %></h2>
