@@ -10,7 +10,7 @@ RSpec.describe Post, type: :model do
   end
 
   it 'validates that title is not too long' do
-    post.title = 'a' * 2
+    post.title = 'a' * 300
     expect(post).to_not be_valid
   end
 
