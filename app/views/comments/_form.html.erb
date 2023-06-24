@@ -1,0 +1,9 @@
+<%= form_with model: @comment, url: user_post_comments_path , class: 'post-form box-border' do |f| %>
+    <%= f.label :text, 'Text: ', { class: "post-form-label"} %>
+    <%= f.text_area :text, { class: "post-form-field" } %>
+    <%= f.submit 'Submit', class: 'post-form-submit' %>
+<% end %>
+
+<% if flash[:alert] %>
+  <p><%= flash[:alert] %></p>
+<% end %>
