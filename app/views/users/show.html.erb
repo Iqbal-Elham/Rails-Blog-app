@@ -1,1 +1,31 @@
-<h1>Profile of the user<%= @user_id %></h1>
+<%= stylesheet_link_tag 'users_styles'%>
+
+<h1>Details of <%= @user.name %></h1>
+
+<section class='user-details'>
+  <div class='user-detail box-border' >
+    <%= image_tag(@user.photo, class: 'user-photo') %>
+    <div class='user-info'>
+      <h2><%= @user.name %></h2> <br>
+      <p>Number of posts: <%= @user.post_counter %></p>
+    </div>
+  </div>
+
+  <div class='box-border'>
+    <h2>Bio</h2>
+    <p><%= @user.bio%></p>
+  </div>
+  <section class='posts-section'>
+    <% @user.recent_posts.each_with_index do |post, index| %>
+        <%= link_to user_posts_path(@user.id) do %>
+        <article class='posts box-border'>
+          <h2><%= "Post ##{index+1}" %></h2>
+          <br>
+          <p><%= post.text%></p>
+          <p class='post-reactions'><%= "Comments: #{post.comments_counter}, Likes: #{post.likes_counter}"%></p>
+        </article>
+        <% end %>
+    <% end %>
+  </section>
+
+</main>
