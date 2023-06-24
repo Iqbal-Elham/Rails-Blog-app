@@ -3,17 +3,26 @@
 <h1>Show more Details of Post by <%= @post.author.name %></h1>
 <% if @post %>
     <section class='post-list'>
+
        <article class='posts box-border'>
         <h2 class='post-title'>"<%= @post.title %>" by <%= @post.author.name %></h2>
-          <br>
+        <br>
           <p><%= @post.text %></p>
+        <div class="likes-comments">
+          <%= link_to new_user_post_comment_path(@post.author_id, @post.id) do %>
+              <p class="post-btn"><%= "Add Comment" %></p>
+            <% end %>
+          <%= form_with url: user_post_likes_path(@post.author_id, @post.id) do |form| %>
+            <p class="post-btn"><%= form.submit "Like" %></p>
+          <% end %>
+        </div>
           <p class='post-reactions'><%= "Comments: #{@post.comments_counter}, Likes: #{@post.likes_counter}"%></p>
         </article>
          <div class='comments box-border'>
         <h3>Comments</h3>
         <% @post.comments.each do |comment| %>
           <div class='comment'>
-            <p class='user-comment'><%= comment.author.name %>: </p>
+            <h3 class='user-comment'><%= comment.author.name %>: </h3>
             <p class='comment-text'><%= comment.text %></p>
           </div>
         <% end %>

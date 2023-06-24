@@ -1,0 +1,7 @@
+<%= form_with model: @post, url: user_posts_path, class: 'post-form box-border' do |f| %>
+    <%= f.label :title, 'Title: ', { class: "post-form-label" }%>
+    <%= f.text_field :title, { class: "post-form-field" }%>
+    <%= f.label :text, 'Text: ', { class: "post-form-label" }%>
+    <%= f.text_area :text, { class: "post-form-field" } %>
+    <%= f.submit 'Submit', class: 'post-form-submit' %>
+<% end %>

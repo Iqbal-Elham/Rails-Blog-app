@@ -5,10 +5,13 @@
   <%= image_tag(@user.photo) %>
   <div class='user-info'>
     <h2 class='user-name'><%= @user.name %></h2>
+    <br>
+    <p class='post-btn'>
+      <%= link_to 'Create a new post', new_user_post_path %>
+    </p>
     <p class= 'user-posts'>Number of Posts: <%= @user.post_counter %></p>
   </div>
 </section>
-
 <section class='posts-list'>
   <% @posts.each do |post| %>
     <div class='box-border'>
@@ -17,7 +20,7 @@
           <br>
           <p><%= post.text%></p>
           <%= link_to user_post_path(@user.id, post.id) do %>
-            <p class='show-more'>Show more</p>
+            <p class='post-btn'>Show more</p>
           <% end %>
           <p class='post-reactions'><%= "Comments: #{post.comments_counter}, Likes: #{post.likes_counter}"%></p>
         </article>
