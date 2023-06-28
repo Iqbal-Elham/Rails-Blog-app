@@ -54,4 +54,11 @@ RSpec.describe 'User post index page', type: :feature do
 
     expect(page).to have_content("Likes: #{@post1.likes_counter}")
   end
+
+  it 'redirects to a post\'s show page when clicking on a post' do
+    visit user_posts_path(@user1)
+    click_link(href: "/users/#{@user1.id}/posts/#{@post1.id}")
+    expect(page).to have_current_path("/users/#{@user1.id}/posts/#{@post1.id}")
+
+  end
 end
