@@ -5,7 +5,8 @@ RSpec.describe 'Post show page', type: :feature do
     @user2 = User.create(name: 'John Doe', bio: 'John Doe is a bio', post_counter: 1, photo: 'https://unsplash.com/photos/F_-0BxGuVvo')
     @user3 = User.create(name: 'John Doe', bio: 'John Doe is a bio', post_counter: 1, photo: 'https://unsplash.com/photos/F_-0BxGuVvo')
 
-    @post = Post.create(title: 'Post 1', text: 'This is the body of Post 1', comments_counter: 3, likes_counter: 3, author: @user1)
+    @post = Post.create(title: 'Post 1', text: 'This is the body of Post 1', comments_counter: 3, likes_counter: 3,
+                        author: @user1)
     @comment1 = Comment.create(text: 'This is the body of Comment 1', author: @user1, post: @post)
     @comment2 = Comment.create(text: 'This is the body of Comment 2', author: @user2, post: @post)
     @comment3 = Comment.create(text: 'This is the body of Comment 3', author: @user3, post: @post)

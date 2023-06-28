@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Users', type: :request do
   before(:each) do
     @user = User.create(name: 'Iqbal Elham', photo: 'https://www.images.com', bio: 'Hello, Iqbal Elham',
-      post_counter: 0)
+                        post_counter: 0)
     get users_path
   end
 

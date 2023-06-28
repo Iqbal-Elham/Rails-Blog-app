@@ -6,9 +6,12 @@ RSpec.describe 'User management', type: :feature do
     @user2 = User.create(name: 'John Doe', bio: 'John Doe is a bio', post_counter: 1, photo: 'https://unsplash.com/photos/F_-0BxGuVvo')
     @user3 = User.create(name: 'John Doe', bio: 'John Doe is a bio', post_counter: 1, photo: 'https://unsplash.com/photos/F_-0BxGuVvo')
 
-    @post1 = Post.create(title: 'Post 1', text: 'This is the body of Post 1', comments_counter: 2, likes_counter: 5, author: @user1)
-    @post2 = Post.create(title: 'Post 2', text: 'This is the body of Post 2', comments_counter: 1, likes_counter: 3, author: @user2)
-    @post3 = Post.create(title: 'Post 2', text: 'This is the body of Post 2', comments_counter: 1, likes_counter: 3, author: @user3)
+    @post1 = Post.create(title: 'Post 1', text: 'This is the body of Post 1', comments_counter: 2, likes_counter: 5,
+                         author: @user1)
+    @post2 = Post.create(title: 'Post 2', text: 'This is the body of Post 2', comments_counter: 1, likes_counter: 3,
+                         author: @user2)
+    @post3 = Post.create(title: 'Post 2', text: 'This is the body of Post 2', comments_counter: 1, likes_counter: 3,
+                         author: @user3)
   end
 
   describe 'User index page' do
