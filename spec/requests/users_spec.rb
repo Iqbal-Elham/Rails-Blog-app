@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
   before(:each) do
+    @user = User.create(name: 'Iqbal Elham', photo: 'https://www.images.com', bio: 'Hello, Iqbal Elham',
+      post_counter: 0)
     get users_path
   end
 
@@ -14,7 +16,7 @@ RSpec.describe 'Users', type: :request do
 
   describe 'GET /users/:id' do
     it 'should return one user' do
-      get '/users/1'
+      get "/users/#{@user.id}"
       expect(response).to have_http_status(200)
     end
   end
@@ -25,7 +27,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'renders the correct content' do
-      expect(response.body).to include('list of users')
+      expect(response.body).to include('List of All Users')
     end
   end
 
@@ -34,7 +36,7 @@ RSpec.describe 'Users', type: :request do
       @user = User.create(name: 'Iqbal Elham', photo: 'https://www.images.com', bio: 'Hello, Iqbal Elham',
                           post_counter: 0)
       get users_path(@user)
-      get '/users/1'
+      get "/users/#{@user.id}"
     end
 
     it 'returns http success' do
@@ -42,7 +44,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'renders the correct content' do
-      expect(response.body).to include('Profile of the user')
+      expect(response.body).to include("Details of #{@user.name}")
     end
   end
 end
