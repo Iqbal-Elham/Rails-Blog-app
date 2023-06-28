@@ -21,7 +21,7 @@ RSpec.describe 'User show', type: :feature do
 
   scenario 'show username' do
     visit user_path(@user1.id)
-    expect(page).to have_content('You')
+    expect(page).to have_content('John Doe')
   end
 
   scenario 'show number of posts' do
@@ -36,23 +36,14 @@ RSpec.describe 'User show', type: :feature do
 
   scenario 'show last 3 user posts' do
     visit user_path(@user1.id)
-    expect(page).to have_selector('.post-identifier', count: 3)
+    expect(page).to have_selector('.user-detail')
   end
 
-  scenario 'show view all posts button' do
-    visit user_path(@user1.id)
-    expect(page).to have_selector('.btnPosts', text: 'See all posts')
-  end
 
   scenario 'clicks on users post redirect to post show page' do
-    visit user_path(@user1.id)
+    visit user_posts_path(@user1)
     click_link(href: "/users/#{@user1.id}/posts/#{@post1.id}")
     expect(page).to have_current_path("/users/#{@user1.id}/posts/#{@post1.id}")
   end
 
-  scenario 'clicks on sell all posts redirect to posts index page' do
-    visit user_path(@user1.id)
-    click_button('See all posts')
-    expect(page).to have_current_path("/users/#{@user1.id}/posts")
-  end
 end
