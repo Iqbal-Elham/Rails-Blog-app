@@ -37,7 +37,7 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it 'renders the correct content' do
-      expect(response.body).to include('Details of the post')
+      expect(response.body).to include("Show more Details of Post by #{@user.name}")
     end
   end
 end
