@@ -43,7 +43,6 @@ RSpec.describe 'User show', type: :feature do
     expect(page).to have_selector('.user-detail')
   end
 
-
   scenario 'clicks on users post redirect to post show page' do
     visit user_posts_path(@user1)
     click_link(href: "/users/#{@user1.id}/posts/#{@post1.id}")
