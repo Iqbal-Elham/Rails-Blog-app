@@ -7,6 +7,9 @@
     <%= image_tag(@user.photo, class: 'user-photo') %>
     <div class='user-info'>
       <h2><%= @user.name %></h2> <br>
+       <p class='post-btn'>
+      <%= link_to 'Create a new post', new_user_post_path(@user.id) %>
+    </p>
       <p>Number of posts: <%= @user.post_counter %></p>
     </div>
   </div>
@@ -19,7 +22,7 @@
     <% @user.recent_posts.each_with_index do |post, index| %>
         <%= link_to user_posts_path(@user.id) do %>
         <article class='posts box-border'>
-          <h2><%= "Post ##{index+1}" %></h2>
+          <h2><%= "#{index+1} - #{post.title}" %></h2>
           <br>
           <p><%= post.text%></p>
           <p class='post-reactions'><%= "Comments: #{post.comments_counter}, Likes: #{post.likes_counter}"%></p>
