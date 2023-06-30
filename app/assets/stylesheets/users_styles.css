@@ -85,9 +85,11 @@ img {
   width: 100%;
   display: flex;
   flex-direction: column;
+
   /* align-items: center; */
   margin-bottom: 1rem;
 }
+
 .form-box .field label {
   font-size: 1.2rem;
 }
@@ -132,5 +134,4 @@ img {
 
 .links-btn:hover {
   background-color: rgb(9, 152, 133);
-
 }
